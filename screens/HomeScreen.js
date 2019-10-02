@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
 import {FlatList,View} from 'react-native';
-import {Button, Container, Header, Body, Title, Text, Content} from 'native-base'
+import {Button, Container, Header, Body, Title, Text, Content, Footer, Badge} from 'native-base'
 
-export  function Item({ title }) {
+export  function Item({ title, questions }) {
     return (
         <View>
             <Button primary rounded>
                 <Text>{title}</Text>
+                <Badge>
+                    <Text>{questions}</Text>
+                </Badge>
             </Button>
         </View>
     );
@@ -45,10 +48,11 @@ class HomeScreen extends Component {
                 <Content padder>
                     <FlatList
                         data={this.state.subjects}
-                        renderItem={({item})=><Item title={item.title}/>}
+                        renderItem={({item})=><Item title={item.title} questions={item.questions}/>}
                         keyExtractor={item=>item._id}
                     />
                 </Content>
+                <Footer/>
             </Container>
         );
     }
