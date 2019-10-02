@@ -4,7 +4,6 @@ import {Button, Container, Header, Body, Title} from 'native-base'
 
 function findSubject() {
   console.log('find subject');
-  fetch();
 }
 
 export default function HomeScreen() {
