@@ -6,10 +6,10 @@ import QcmItem from './QcmItem'
 export function Item({title, questions}) {
     return (
         <View style={{padding:10}}>
-            <Button primary rounded
+            <Button success rounded
                     onPress={() => this.props.navigation.navigate('QcmItem')}>
                 <Text>{title}</Text>
-                <Badge>
+                <Badge danger>
                     <Text>{questions}</Text>
                 </Badge>
             </Button>
