@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import {FlatList, View, ScrollView} from 'react-native';
 import {Button, Container, Header, Body, Title, Text, Content, Footer, Badge} from 'native-base'
+import QcmItem from './QcmItem'
 
 export function Item({title, questions}) {
     return (
         <View style={{padding:10}}>
-            <Button primary rounded>
+            <Button primary rounded
+                    onPress={() => this.props.navigation.navigate('QcmItem')}>
                 <Text>{title}</Text>
                 <Badge>
                     <Text>{questions}</Text>
@@ -39,7 +41,7 @@ class HomeScreen extends Component {
     render() {
         return (
             <Container>
-                <Header>
+                <Header style={{backgroundColor:"#dae8ff"}}>
                     <Body>
                         <Title>QCM Titre page</Title>
                     </Body>
@@ -60,7 +62,7 @@ class HomeScreen extends Component {
 }
 
 HomeScreen.navigationOptions = {
-    title: 'QCM'
+    title: 'Funny QCM'
 };
 
 export default HomeScreen;
