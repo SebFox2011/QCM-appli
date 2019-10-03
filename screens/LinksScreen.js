@@ -6,9 +6,10 @@ export default class LinksScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: '',
-            question: '',
-            answer:''
+            title: 'PHP',
+            item: '',
+            answer:'',
+            questions:0
         };
     }
 
@@ -16,11 +17,12 @@ export default class LinksScreen extends Component {
         this.setState({
             title: value
         });
+        console.log(this.state.title)
     }
 
     onAreaChange(value) {
         this.setState({
-            question: value
+            item: value
         });
     }
 
@@ -31,7 +33,31 @@ export default class LinksScreen extends Component {
         console.log(this.state);
     }
 
-    render() {
+  saveQCM(){
+    fetch(process.env.API_URL+'/subjects',{
+      method:'POST',
+      headers: {
+        'Accept':'application/json',
+        'Content-Type':'application/json'
+      },
+      body:JSON.stringify(
+          {
+            title:this.state.title,
+            item:this.state.item,
+            answer:this.state.answer,
+            questions:this.state.questions
+            }
+      )
+    });
+  }
+
+  incrementQuestions (){
+      this.setState({
+        questions:this.state.questions+1
+      })
+  }
+
+  render() {
         return (
             <Container>
                 <Header style={{backgroundColor: "#dae8ff"}}>
@@ -68,10 +94,11 @@ export default class LinksScreen extends Component {
 
                         </View>
                         <View style={{padding: 10}}>
-                            <Button style={{height: 50, width: 50,marginBottom: 10}}>
+                            <Button onPress={()=> this.incrementQuestions()}
+                                    style={{height: 50, width: 50,marginBottom: 10}}>
                                 <Text>+</Text>
                             </Button>
-                            <Button success><Text>Terminer</Text>
+                            <Button onPress={()=>this.saveQCM()} success><Text>Terminer</Text>
                             </Button>
 
                         </View>
