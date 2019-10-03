@@ -71,9 +71,9 @@ export default class LinksScreen extends Component {
                             <Button style={{height: 50, width: 50,marginBottom: 10}}>
                                 <Text>+</Text>
                             </Button>
-                            <Button success>
-                                <Text>Terminer</Text>
+                            <Button success><Text>Terminer</Text>
                             </Button>
+
                         </View>
                     </Form>
                 </Content>

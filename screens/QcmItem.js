@@ -9,10 +9,19 @@ class QcmItem extends Component{
         }
     }
 
+    findSubjectId(id) {
+        fetch(process.env.API_URL + '/subjects/'+id)
+            .then(response => response.json())
+            .then(subjectsId => this.setState({
+                subjectsId: subjectsId
+            }));
+    }
+
     render() {
         return(
             <View>
                 <Text>Ecran QCM</Text>
+                <Text>{this.props.id}</Text>
             </View>
         )
     }
