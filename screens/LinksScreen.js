@@ -34,7 +34,8 @@ export default class LinksScreen extends Component {
     }
 
   saveQCM(){
-    fetch(process.env.API_URL+'/subjects',{
+    //fetch(process.env.API_URL+'/subjects',{
+      fetch('http://92.167.212.55:8010/subjects',{
       method:'POST',
       headers: {
         'Accept':'application/json',

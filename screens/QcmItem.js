@@ -10,7 +10,8 @@ class QcmItem extends Component{
     }
 
     findSubjectId(id) {
-        fetch(process.env.API_URL + '/subjects/'+id)
+        //fetch(process.env.API_URL + '/subjects/'+id)
+        fetch('http://92.167.212.55:8010/subjects/'+id)
             .then(response => response.json())
             .then(subjectsId => this.setState({
                 subjectsId: subjectsId
