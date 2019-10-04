@@ -2,11 +2,6 @@ import React, {Component} from 'react';
 import {FlatList, View, ScrollView} from 'react-native';
 import {Button, Container, Header, Body, Title, Text, Content, Footer, Badge} from 'native-base'
 
-
-/*
-* () => this.props.navigation.navigate('QcmItem')
-* */
-
 function Item({title, questions,id}) {
     return (
         <View style={{padding:10}}>

@@ -4,7 +4,7 @@ import {createStackNavigator, createBottomTabNavigator} from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import NewQcm from '../screens/NewQcm';
 import SettingsScreen from '../screens/SettingsScreen';
 import QcmItem from "../screens/QcmItem";
 import QcmResults from "../screens/QcmResults";
@@ -37,7 +37,7 @@ HomeStack.path = '';
 
 const LinksStack = createStackNavigator(
     {
-        Links: LinksScreen,
+        Links: NewQcm,
     },
     config
 );

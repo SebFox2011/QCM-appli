@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Container, Button, Picker, Item, Header, Content, Form, Icon, Title, Body, Textarea, Input, Text} from "native-base";
 import {View, Switch} from "react-native";
 
-export default class LinksScreen extends Component {
+export default class NewQcm extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -110,6 +110,6 @@ export default class LinksScreen extends Component {
     }
 }
 
-LinksScreen.navigationOptions = {
+NewQcm.navigationOptions = {
     title: 'Funny QCM',
 };
