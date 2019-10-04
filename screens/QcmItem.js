@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text} from 'react-native'
+import {Button} from "native-base";
 
 class QcmItem extends Component{
     constructor(props) {
@@ -21,8 +22,11 @@ class QcmItem extends Component{
     render() {
         return(
             <View>
-                <Text>Ecran QCM</Text>
-                <Text>{this.props.id}</Text>
+                <Text>Ecran QCM Item</Text>
+                <Text>{this.state.id}</Text>
+                <Button onPress={() => this.props.navigation.navigate('QcmResults')}>
+                    <Text>Aller à QCM Résults</Text>
+                </Button>
             </View>
         )
     }

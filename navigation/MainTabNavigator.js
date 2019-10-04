@@ -7,6 +7,7 @@ import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import QcmItem from "../screens/QcmItem";
+import QcmResults from "../screens/QcmResults";
 
 const config = Platform.select({
     web: {headerMode: 'screen'},
@@ -16,7 +17,8 @@ const config = Platform.select({
 const HomeStack = createStackNavigator(
     {
         Home: HomeScreen,
-        QcmItem: QcmItem
+        QcmItem: QcmItem,
+        QcmResults:QcmResults
     },
     config
 );

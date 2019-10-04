@@ -54,13 +54,11 @@ class HomeScreen extends Component {
                     </Body>
                 </Header>
                 <Content padder>
-                    <Button
-                        title="Aller à QCM Item"
-
-                        onPress={() => this.props.navigation.navigate('QcmItem', {
+                    <Button onPress={() => this.props.navigation.navigate('QcmItem', {
                             id: this.state.subjects._id
-                        })}
-                    />
+                        })}>
+                        <Text>Aller à QCM Résults</Text>
+                    </Button>
                     <ScrollView>
                         <FlatList
                             data={this.state.subjects}
