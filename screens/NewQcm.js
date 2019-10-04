@@ -78,11 +78,11 @@ export default class NewQcm extends Component {
                                 selectedValue={this.state.title}
                                 onValueChange={this.onTitleChange.bind(this)}
                             >
-                                <Picker.Item label="PHP" value="key0"/>
-                                <Picker.Item label="Javascript" value="key1"/>
-                                <Picker.Item label="MongoDB" value="key2"/>
-                                <Picker.Item label="HTML" value="key3"/>
-                                <Picker.Item label="Python" value="key4"/>
+                                <Picker.Item label="PHP" value="PHP"/>
+                                <Picker.Item label="Javascript" value="Javascript"/>
+                                <Picker.Item label="MongoDB" value="MongoDB"/>
+                                <Picker.Item label="HTML" value="HTML"/>
+                                <Picker.Item label="Python" value="Python"/>
                             </Picker>
                         </Item>
                         <Textarea rowSpan={5} bordered placeholder="Question"
