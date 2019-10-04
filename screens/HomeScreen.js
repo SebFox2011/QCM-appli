@@ -13,6 +13,14 @@ function Item({title, questions,id}) {
                 <Badge danger>
                     <Text>{questions}</Text>
                 </Badge>
+                <Button warning
+                        onPress={()=> fetch('http://92.167.212.55:8010/subjects/'+id ,{ method: 'delete' })
+                            .then(response => response.json())
+                            .then(data => navigation.navigate('HomeScreen'))
+                            .catch(err => console.log(err))
+                        }>
+                    <Text>supprimer</Text>
+                </Button>
             </Button>
         </View>
     );
