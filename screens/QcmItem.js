@@ -6,9 +6,9 @@ class QcmItem extends Component {
     constructor(props) {
         super(props);
         const id = this.props.navigation.getParam('id');
-        console.log(id)
+        console.log(id);
         this.state = {
-            id:this.props.id
+            id:id
         }
     }
 
@@ -19,14 +19,6 @@ class QcmItem extends Component {
             .then(subjectsId => this.setState({
                 subjectsId: subjectsId
             }));
-    }
-
-    componentDidMount() {
-        //console.log(this.props.id);
-        /*this.setState({
-            id:this.props.id
-        })*/
-
     }
 
     render() {

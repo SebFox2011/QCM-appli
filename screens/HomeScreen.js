@@ -2,24 +2,11 @@ import React, {Component} from 'react';
 import {FlatList, View, ScrollView} from 'react-native';
 import {Button, Container, Header, Body, Title, Text, Content, Footer, Badge} from 'native-base'
 
-
-
-//function Item({title, questions,id, onPress}) {
-//onPress={() => onPress()
-//<Button onPress={() => this.props.navigation.navigate('QcmItem', {
-//                             id: this.state.subjects._id
-//                         })}>
-//                         <Text>Aller à QCM Résults</Text>
-//                     </Button>
-
-
 function Item({title, questions,id, onPress}) {
     return (
         <View style={{padding:10}}>
             <Button success rounded
-                    onPress={() => this.props.navigation.navigate('QcmItem', {
-                        id: this.state.subjects._id
-                    })}>
+                    onPress={() => onPress()}>
                 <Text>{title}</Text>
                 <Badge danger>
                     <Text>{questions}</Text>
@@ -41,13 +28,16 @@ class HomeScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            subjects: [],
-            subjectsId:[]
+            subjects: []
         }
     }
 
     componentDidMount() {
         this.findSubject();
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        //this.findSubject(); // Proposé pour rafraichir l'affichage après les actions
     }
 
     findSubject() {
@@ -75,7 +65,7 @@ class HomeScreen extends Component {
                                 ({item}) => <Item title={item.title}
                                                   questions={item.questions}
                                                   id={item._id}
-                                                    onPress={id => this.props.navigation.navigate('QcmItem', { id: id })}/>}
+                                                  onPress={id => this.props.navigation.navigate('QcmItem', { id: item._id })}/>}
                             keyExtractor={item => item._id}
                         />
                     </ScrollView>
