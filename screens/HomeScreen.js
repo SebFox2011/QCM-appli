@@ -36,10 +36,6 @@ class HomeScreen extends Component {
         this.findSubject();
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        //this.findSubject(); // Proposé pour rafraichir l'affichage après les actions
-    }
-
     findSubject() {
         //fetch(process.env.API_URL + '/subjects')
         fetch('http://92.167.212.55:8010/subjects')

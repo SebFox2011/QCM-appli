@@ -6,9 +6,9 @@ class QcmItem extends Component {
     constructor(props) {
         super(props);
         const id = this.props.navigation.getParam('id');
-        console.log(id);
         this.state = {
-            id:id
+            id:id,
+            subjects:[]
         }
     }
 
@@ -16,9 +16,14 @@ class QcmItem extends Component {
         //fetch(process.env.API_URL + '/subjects/'+id)
         fetch('http://92.167.212.55:8010/subjects/' + id)
             .then(response => response.json())
-            .then(subjectsId => this.setState({
-                subjectsId: subjectsId
+            .then(subjects => this.setState({
+                subjects: subjects
             }));
+        console.log(this.state.subjects)
+    }
+
+    componentDidMount() {
+        this.findSubjectId(this.state.id);
     }
 
     render() {
@@ -32,6 +37,7 @@ class QcmItem extends Component {
                 <Content padder>
                     <View style={{padding: 10}}>
                         <Text>{this.state.id}</Text>
+                        <Text>{this.state.subjects.title}</Text>
                     </View>
                     <View style={{padding: 10}}>
                         <Button style={{padding:10}} onPress={() => this.findSubjectId(this.state.id)}>
