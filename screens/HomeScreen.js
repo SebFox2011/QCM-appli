@@ -2,13 +2,24 @@ import React, {Component} from 'react';
 import {FlatList, View, ScrollView} from 'react-native';
 import {Button, Container, Header, Body, Title, Text, Content, Footer, Badge} from 'native-base'
 
-function Item({title, questions,id}) {
+
+
+//function Item({title, questions,id, onPress}) {
+//onPress={() => onPress()
+//<Button onPress={() => this.props.navigation.navigate('QcmItem', {
+//                             id: this.state.subjects._id
+//                         })}>
+//                         <Text>Aller à QCM Résults</Text>
+//                     </Button>
+
+
+function Item({title, questions,id, onPress}) {
     return (
         <View style={{padding:10}}>
             <Button success rounded
-                    onPress={()=> fetch('http://92.167.212.55:8010/subjects/'+id)
-                        .then(response => response.json())
-                        .then((data) => console.log(data))}>
+                    onPress={() => this.props.navigation.navigate('QcmItem', {
+                        id: this.state.subjects._id
+                    })}>
                 <Text>{title}</Text>
                 <Badge danger>
                     <Text>{questions}</Text>
@@ -57,18 +68,14 @@ class HomeScreen extends Component {
                     </Body>
                 </Header>
                 <Content padder>
-                    <Button onPress={() => this.props.navigation.navigate('QcmItem', {
-                            id: this.state.subjects._id
-                        })}>
-                        <Text>Aller à QCM Résults</Text>
-                    </Button>
                     <ScrollView>
                         <FlatList
                             data={this.state.subjects}
                             renderItem={
                                 ({item}) => <Item title={item.title}
                                                   questions={item.questions}
-                                                  id={item._id} />}
+                                                  id={item._id}
+                                                    onPress={id => this.props.navigation.navigate('QcmItem', { id: id })}/>}
                             keyExtractor={item => item._id}
                         />
                     </ScrollView>

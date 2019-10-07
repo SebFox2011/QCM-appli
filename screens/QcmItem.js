@@ -5,6 +5,8 @@ import {Button, Content, Container, Body, Title, Header,Footer} from "native-bas
 class QcmItem extends Component {
     constructor(props) {
         super(props);
+        const id = this.props.navigation.getParam('id');
+        console.log(id)
         this.state = {
             id:this.props.id
         }
