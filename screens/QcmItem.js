@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native'
-import {Button, Content, Container, Body, Title, Header,Footer} from "native-base";
+import {View, Text, ScrollView, FlatList} from 'react-native'
+import {Button, Badge, Content, Container, Body, Title, Header,Footer} from "native-base";
 
 class QcmItem extends Component {
     constructor(props) {
@@ -39,6 +39,13 @@ class QcmItem extends Component {
                         <Text>{this.state.id}</Text>
                         <Text>{this.state.subjects.title}</Text>
                     </View>
+                    <ScrollView>
+                        <FlatList
+                            data={this.state.subjects}
+                            renderItem={
+                                ({item}) => <Button><Text>{item.title}</Text><Badge><Text>{item.questions}</Text></Badge></Button>}
+                            keyExtractor={item => item._id}/>
+                    </ScrollView>
                     <View style={{padding: 10}}>
                         <Button style={{padding:10}} onPress={() => this.findSubjectId(this.state.id)}>
                             <Text>charger les questions</Text>
